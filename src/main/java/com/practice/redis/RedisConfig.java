@@ -25,5 +25,11 @@ public class RedisConfig {
 
 
         return redisTemplate;
-    };
+    }
+
+    // Spring Session 직렬, 역직렬 바이트 코드 보기 좋게 바꿔주기
+    @Bean
+    public RedisSerializer<Object> springSessionDefaultRedisSerializer() {
+        return RedisSerializer.json();
+    }
 }
